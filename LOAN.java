@@ -1,18 +1,36 @@
 public class LOAN {
 
-  public Integer loanId;
-
-  public String borrowDate;
-
-  public String returnDate;
+    private Integer loanId;
+    private String borrowDate;
+    private String returnDate;
 
     public MEMBER borrows;
-    public BOOK Involeved_In;
+    public BOOK involvedIn;
 
-  public void createLoan() {
-  }
+    private boolean isActive;
 
-  public void returnBook() {
-  }
+    public LOAN(Integer loanId, MEMBER member, BOOK book, String borrowDate) {
+        this.loanId = loanId;
+        this.borrows = member;
+        this.involvedIn = book;
+        this.borrowDate = borrowDate;
+        this.isActive = false;
+    }
 
+    public void borrowBook() {
+        if (borrows == null || involvedIn == null || involvedIn.isAvailable() == false)
+            return;
+
+        involvedIn.setAvailable(false);
+        isActive = true;
+    }
+
+    public void returnBook(String returnDate) {
+        if (isActive == false)
+            return;
+
+        this.returnDate = returnDate;
+        involvedIn.setAvailable(true);
+        isActive = false;
+    }
 }
