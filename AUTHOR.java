@@ -1,19 +1,43 @@
 public class AUTHOR {
 
-  public Integer authorId;
+    private Integer authorId;
+    private String name;
+    private String biography;
 
-  public String name;
+    // Constructor
+    public AUTHOR(Integer authorId, String name, String biography) {
+        this.authorId = authorId;
+        this.name = name;
+        this.biography = biography;
+    }
 
-  public String biography;
+    // Getter for authorId
+    public Integer getAuthorId() {
+        return authorId;
+    }
 
-// methods
-  public void getAutherId() {
-  }
+    // Setter for authorId
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
+    }
 
-  public void getName() {
-  }
+    // Getter for name
+    public String getName() {
+        return name;
+    }
 
-  public void setBiography() {
-  }
+    // Setter for name
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    // Getter for biography
+    public String getBiography() {
+        return biography;
+    }
+
+    // Setter for biography
+    public void setBiography(String biography) {
+        this.biography = biography;
+    }
 }
